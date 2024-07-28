@@ -1,0 +1,19 @@
+<resources>
+    <!-- Array de orígenes -->
+    <string-array name="origenes">
+        <item>Mérida</item>
+        <item>Progreso</item>
+        <item>Valladolid</item>
+        <item>Tizimin</item>
+        <item>Chicxulub</item>
+    </string-array>
+
+    <!-- Array de destinos -->
+    <string-array name="destinos">
+        <item>Cancún</item>
+        <item>Playa del Carmen</item>
+        <item>Tulum</item>
+        <item>Chetumal</item>
+        <item>Holbox</item>
+    </string-array>
+</resources>

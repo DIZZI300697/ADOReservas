@@ -1,0 +1,25 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.adoreservas">
+
+    <application
+        android:allowBackup="true"
+        android:label="ADO Reservas"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ADOReservas">
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MenuActivity" />
+        <activity android:name=".ComprarActivity" />
+        <activity android:name=".ConsultarActivity" />
+        <activity android:name=".CambiarActivity" />
+        <activity android:name=".CancelarActivity" />
+    </application>
+</manifest>
