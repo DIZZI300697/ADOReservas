@@ -7,47 +7,77 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cambiar"
+        android:text="Cambiar Reserva"
         android:textSize="24sp"
         android:layout_gravity="center_horizontal" />
 
     <EditText
-        android:id="@+id/et_id_cambiar"
+        android:id="@+id/et_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="ID" />
-
-    <Spinner
-        android:id="@+id/sp_nuevo_origen"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <Spinner
-        android:id="@+id/sp_nuevo_destino"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:hint="ID de la Reserva"
+        android:layout_marginTop="16dp" />
 
     <Button
-        android:id="@+id/btn_nueva_fecha"
+        android:id="@+id/btn_buscar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nueva Fecha" />
+        android:text="Buscar"
+        android:layout_marginTop="8dp" />
+
+    <Spinner
+        android:id="@+id/sp_origen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp" />
+
+    <Spinner
+        android:id="@+id/sp_destino"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/et_fecha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Fecha"
+        android:focusable="false"
+        android:layout_marginTop="16dp" />
 
     <Button
-        android:id="@+id/btn_nueva_hora"
+        android:id="@+id/btn_fecha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nueva Hora" />
+        android:text="Seleccionar Fecha"
+        android:layout_marginTop="8dp" />
+
+    <EditText
+        android:id="@+id/et_hora"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Hora"
+        android:focusable="false"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/btn_hora"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Seleccionar Hora"
+        android:layout_marginTop="8dp" />
 
     <Button
         android:id="@+id/btn_actualizar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Actualizar" />
+        android:text="Actualizar"
+        android:layout_marginTop="16dp" />
 
     <Button
         android:id="@+id/btn_regresar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Regresar al Menú" />
+        android:text="Regresar al Menú"
+        android:layout_marginTop="8dp" />
 </LinearLayout>

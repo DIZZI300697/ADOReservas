@@ -15,56 +15,35 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class CancelarActivity extends AppCompatActivity {
 
-    private EditText etIdCancelar;
-    private Button btnCancelar, btnRegresar;
-    private TextView tvDetalles;
+    private EditText etId;
+    private TextView tvDetails;
+    private Button btnBuscar, btnCancelar, btnRegresar;
+    private DatabaseHelper dbHelper;
+    private int reservaId = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cancelar);
 
-        etIdCancelar = findViewById(R.id.et_id_cancelar);
+        etId = findViewById(R.id.et_id);
+        tvDetails = findViewById(R.id.tv_details);
+        btnBuscar = findViewById(R.id.btn_buscar);
         btnCancelar = findViewById(R.id.btn_cancelar);
         btnRegresar = findViewById(R.id.btn_regresar);
-        tvDetalles = findViewById(R.id.tv_detalles);
+        dbHelper = new DatabaseHelper(this);
+
+        btnBuscar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                buscarReserva();
+            }
+        });
 
         btnCancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final int id = Integer.parseInt(etIdCancelar.getText().toString());
-                DatabaseHelper db = new DatabaseHelper(CancelarActivity.this);
-                Cursor cursor = db.getReserva(id);
-
-                if (cursor != null && cursor.moveToFirst()) {
-                    String origen = cursor.getString(cursor.getColumnIndexOrThrow("origen"));
-                    String destino = cursor.getString(cursor.getColumnIndexOrThrow("destino"));
-                    String fecha = cursor.getString(cursor.getColumnIndexOrThrow("fecha"));
-                    String hora = cursor.getString(cursor.getColumnIndexOrThrow("hora"));
-                    double total = cursor.getDouble(cursor.getColumnIndexOrThrow("total"));
-
-                    String detalles = "ID: " + id + "\nOrigen: " + origen + "\nDestino: " + destino +
-                            "\nFecha: " + fecha + "\nHora: " + hora + "\nTotal: " + total;
-                    tvDetalles.setText(detalles);
-
-                    new AlertDialog.Builder(CancelarActivity.this)
-                            .setTitle("Confirmar cancelación")
-                            .setMessage("¿Estás seguro de que quieres cancelar este viaje?")
-                            .setPositiveButton("Sí", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    db.deleteReserva(id);
-                                    Toast.makeText(CancelarActivity.this, "Reserva cancelada", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(CancelarActivity.this, MenuActivity.class);
-                                    startActivity(intent);
-                                    finish();
-                                }
-                            })
-                            .setNegativeButton("No", null)
-                            .show();
-                } else {
-                    Toast.makeText(CancelarActivity.this, "No se encontró la reserva", Toast.LENGTH_SHORT).show();
-                }
+                confirmarCancelacion();
             }
         });
 
@@ -76,5 +55,63 @@ public class CancelarActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    private void buscarReserva() {
+        String idStr = etId.getText().toString().trim();
+        if (idStr.isEmpty()) {
+            Toast.makeText(this, "Ingrese una ID válida", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        reservaId = Integer.parseInt(idStr);
+        Cursor cursor = dbHelper.getReserva(reservaId);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            String origen = cursor.getString(cursor.getColumnIndex("origen"));
+            String destino = cursor.getString(cursor.getColumnIndex("destino"));
+            String fecha = cursor.getString(cursor.getColumnIndex("fecha"));
+            String hora = cursor.getString(cursor.getColumnIndex("hora"));
+            double total = cursor.getDouble(cursor.getColumnIndex("total"));
+
+            String details = "Origen: " + origen + "\nDestino: " + destino + "\nFecha: " + fecha + "\nHora: " + hora + "\nTotal: " + total;
+            tvDetails.setText(details);
+            tvDetails.setVisibility(View.VISIBLE);
+            cursor.close();
+        } else {
+            Toast.makeText(this, "Reserva no encontrada", Toast.LENGTH_SHORT).show();
+            tvDetails.setText("");
+            tvDetails.setVisibility(View.GONE);
+        }
+    }
+
+    private void confirmarCancelacion() {
+        if (reservaId == -1) {
+            Toast.makeText(this, "Busque una reserva primero", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        new AlertDialog.Builder(this)
+                .setTitle("Cancelar Reserva")
+                .setMessage("¿Estás seguro de que deseas cancelar esta reserva?")
+                .setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        cancelarReserva();
+                    }
+                })
+                .setNegativeButton("No", null)
+                .show();
+    }
+
+    private void cancelarReserva() {
+        int result = dbHelper.deleteReserva(reservaId);
+        if (result > 0) {
+            Toast.makeText(this, "Reserva cancelada con éxito", Toast.LENGTH_SHORT).show();
+            tvDetails.setText("");
+            tvDetails.setVisibility(View.GONE);
+            reservaId = -1;
+        } else {
+            Toast.makeText(this, "Error al cancelar la reserva", Toast.LENGTH_SHORT).show();
+        }
     }
 }

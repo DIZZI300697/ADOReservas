@@ -7,53 +7,70 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Vender"
+        android:text="Comprar"
         android:textSize="24sp"
         android:layout_gravity="center_horizontal" />
-
-    <EditText
-        android:id="@+id/et_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="ID" />
 
     <Spinner
         android:id="@+id/sp_origen"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp" />
 
     <Spinner
         android:id="@+id/sp_destino"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/et_fecha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Fecha"
+        android:focusable="false"
+        android:layout_marginTop="16dp" />
 
     <Button
         android:id="@+id/btn_fecha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Fecha" />
+        android:text="Seleccionar Fecha"
+        android:layout_marginTop="8dp" />
+
+    <EditText
+        android:id="@+id/et_hora"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Hora"
+        android:focusable="false"
+        android:layout_marginTop="16dp" />
 
     <Button
         android:id="@+id/btn_hora"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hora" />
+        android:text="Seleccionar Hora"
+        android:layout_marginTop="8dp" />
 
-    <EditText
-        android:id="@+id/et_total"
+    <TextView
+        android:id="@+id/tv_total"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Total" />
+        android:layout_marginTop="16dp"
+        android:text="Total: $0.00" />
 
     <Button
         android:id="@+id/btn_pagar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Pagar" />
+        android:text="Pagar"
+        android:layout_marginTop="16dp" />
 
     <Button
         android:id="@+id/btn_regresar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Regresar al Menú" />
+        android:text="Regresar al Menú"
+        android:layout_marginTop="8dp" />
 </LinearLayout>
