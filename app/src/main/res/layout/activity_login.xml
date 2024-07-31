@@ -2,24 +2,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/fondo1"
+
     android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:textSize="40sp"
+        android:textColor="#FFFFFF"
+        android:layout_gravity="center_horizontal" />
 
     <EditText
         android:id="@+id/et_usuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Usuario" />
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:hint="Username" />
 
     <EditText
         android:id="@+id/et_contrasena"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Contraseña"
+        android:hint="Password"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         android:inputType="textPassword" />
 
     <Button
         android:id="@+id/btn_iniciar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Iniciar Sesión" />
+        android:backgroundTint="#039BE5"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:text="Login" />
 </LinearLayout>

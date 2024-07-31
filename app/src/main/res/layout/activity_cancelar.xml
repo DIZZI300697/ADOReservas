@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
+    android:background="@drawable/fondo3"
     tools:context=".CancelarActivity">
 
     <EditText
@@ -12,12 +13,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="ID de la reserva"
+        android:textColor="@color/black"
+        android:textColorHint="#4E4848"
         android:inputType="number" />
 
     <Button
         android:id="@+id/btn_buscar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="#22c55e"
+        android:textColor="@color/white"
         android:text="Buscar Reserva" />
 
     <TextView
@@ -33,11 +38,15 @@
         android:id="@+id/btn_cancelar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="#22c55e"
+        android:textColor="@color/white"
         android:text="Cancelar Reserva" />
 
     <Button
         android:id="@+id/btn_regresar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="#f59e0b"
+        android:textColor="@color/white"
         android:text="Regresar al Menú" />
 </LinearLayout>

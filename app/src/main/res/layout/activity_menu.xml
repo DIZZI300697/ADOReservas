@@ -2,42 +2,65 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:background="@drawable/fondo2"
+    android:padding="20dp">
 
     <TextView
         android:id="@+id/tv_usuario"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:layout_gravity="end" />
+        android:layout_gravity="start"
+        android:layout_marginBottom="170dp"/>
 
-    <Button
-        android:id="@+id/btn_comprar"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Comprar" />
+        android:orientation="vertical"
+        android:gravity="center">
 
-    <Button
-        android:id="@+id/btn_consultar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Consultar" />
+        <Button
+            android:id="@+id/btn_comprar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Comprar"
+            android:backgroundTint="#3b82f6"
+            android:textColor="@color/white"
+            android:layout_marginBottom="12dp"/>
 
-    <Button
-        android:id="@+id/btn_cambiar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Cambiar" />
+        <Button
+            android:id="@+id/btn_consultar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Consultar"
+            android:backgroundTint="#3b82f6"
+            android:textColor="@color/white"
+            android:layout_marginBottom="12dp"/>
 
-    <Button
-        android:id="@+id/btn_cancelar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Cancelar" />
+        <Button
+            android:id="@+id/btn_cambiar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cambiar"
+            android:backgroundTint="#3b82f6"
+            android:textColor="@color/white"
+            android:layout_marginBottom="12dp"/>
 
-    <Button
-        android:id="@+id/btn_salir"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Salir" />
+        <Button
+            android:id="@+id/btn_cancelar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cancelar"
+            android:backgroundTint="#3b82f6"
+            android:textColor="@color/white"
+            android:layout_marginBottom="12dp"/>
+
+        <Button
+            android:id="@+id/btn_salir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#3b82f6"
+            android:textColor="@color/white"
+            android:text="Salir" />
+    </LinearLayout>
 </LinearLayout>
