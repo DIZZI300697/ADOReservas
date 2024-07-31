@@ -12,6 +12,7 @@ public class MenuActivity extends AppCompatActivity {
 
     private Button btnVender, btnConsultar, btnCambiar, btnCancelar, btnSalir;
     private TextView tvUsuario;
+    private String usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,13 +26,19 @@ public class MenuActivity extends AppCompatActivity {
         btnSalir = findViewById(R.id.btn_salir);
         tvUsuario = findViewById(R.id.tv_usuario);
 
-        String usuario = getIntent().getStringExtra("usuario");
-        tvUsuario.setText("Hola, " + usuario);
+        // Obtener el nombre de usuario del Intent
+        usuario = getIntent().getStringExtra("usuario");
+        if (usuario != null && !usuario.isEmpty()) {
+            tvUsuario.setText("Hola, " + usuario);
+        } else {
+            tvUsuario.setText("Hola, usuario");
+        }
 
         btnVender.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MenuActivity.this, ComprarActivity.class);
+                intent.putExtra("usuario", usuario); // Pasar usuario a la siguiente actividad
                 startActivity(intent);
             }
         });
@@ -40,6 +47,7 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MenuActivity.this, ConsultarActivity.class);
+                intent.putExtra("usuario", usuario); // Pasar usuario a la siguiente actividad
                 startActivity(intent);
             }
         });
@@ -48,6 +56,7 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MenuActivity.this, CambiarActivity.class);
+                intent.putExtra("usuario", usuario); // Pasar usuario a la siguiente actividad
                 startActivity(intent);
             }
         });
@@ -56,6 +65,7 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MenuActivity.this, CancelarActivity.class);
+                intent.putExtra("usuario", usuario); // Pasar usuario a la siguiente actividad
                 startActivity(intent);
             }
         });

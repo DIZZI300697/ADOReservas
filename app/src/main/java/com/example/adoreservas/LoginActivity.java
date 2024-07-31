@@ -34,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this, "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show();
                 } else {
                     Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
-                    intent.putExtra("usuario", usuario);
+                    intent.putExtra("usuario", usuario); // Asegúrate de que 'usuario' se está pasando aquí
                     startActivity(intent);
                     finish();
                 }

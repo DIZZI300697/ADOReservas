@@ -24,6 +24,7 @@ import java.util.Locale;
 
 public class ComprarActivity extends AppCompatActivity {
 
+    private String usuario;
     private EditText etFecha, etHora;
     private Spinner spOrigen, spDestino;
     private Button btnFecha, btnHora, btnPagar, btnRegresar;
@@ -43,6 +44,9 @@ public class ComprarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comprar);
+
+        // Obtener el nombre de usuario
+        usuario = getIntent().getStringExtra("usuario");
 
         etFecha = findViewById(R.id.et_fecha);
         etHora = findViewById(R.id.et_hora);
@@ -93,6 +97,7 @@ public class ComprarActivity extends AppCompatActivity {
                 if (id > 0) {
                     Toast.makeText(ComprarActivity.this, "Reserva realizada con éxito", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(ComprarActivity.this, MenuActivity.class);
+                    intent.putExtra("usuario", usuario); // Pasar usuario al volver al menú
                     startActivity(intent);
                     finish();
                 } else {
@@ -105,6 +110,7 @@ public class ComprarActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ComprarActivity.this, MenuActivity.class);
+                intent.putExtra("usuario", usuario); // Pasar usuario al volver al menú
                 startActivity(intent);
                 finish();
             }
