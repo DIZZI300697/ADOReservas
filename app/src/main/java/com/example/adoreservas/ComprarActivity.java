@@ -85,7 +85,7 @@ public class ComprarActivity extends AppCompatActivity {
                 int origenPos = spOrigen.getSelectedItemPosition();
                 int destinoPos = spDestino.getSelectedItemPosition();
                 double total = precios[origenPos][destinoPos];
-                String fecha = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(calendar.getTime());
+                String fecha = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(calendar.getTime());
                 String hora = new SimpleDateFormat("HH:mm", Locale.getDefault()).format(calendar.getTime());
 
                 DatabaseHelper db = new DatabaseHelper(ComprarActivity.this);
@@ -144,7 +144,7 @@ public class ComprarActivity extends AppCompatActivity {
             calendar.set(Calendar.YEAR, year);
             calendar.set(Calendar.MONTH, month);
             calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-            etFecha.setText(new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(calendar.getTime()));
+            etFecha.setText(new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(calendar.getTime()));
         }
     };
 

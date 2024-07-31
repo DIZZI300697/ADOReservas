@@ -31,7 +31,13 @@ public class ConsultarActivity extends AppCompatActivity {
         btnConsultar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int id = Integer.parseInt(etIdConsultar.getText().toString());
+                String idText = etIdConsultar.getText().toString();
+                if (idText.isEmpty()) {
+                    Toast.makeText(ConsultarActivity.this, "Proporcione ID", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                int id = Integer.parseInt(idText);
                 DatabaseHelper db = new DatabaseHelper(ConsultarActivity.this);
                 Cursor cursor = db.getReserva(id);
 
