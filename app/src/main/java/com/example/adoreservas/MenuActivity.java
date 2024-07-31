@@ -38,7 +38,7 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MenuActivity.this, ComprarActivity.class);
-                intent.putExtra("usuario", usuario); // Pasar usuario a la siguiente actividad
+                intent.putExtra("usuario", usuario);
                 startActivity(intent);
             }
         });
@@ -47,7 +47,7 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MenuActivity.this, ConsultarActivity.class);
-                intent.putExtra("usuario", usuario); // Pasar usuario a la siguiente actividad
+                intent.putExtra("usuario", usuario);
                 startActivity(intent);
             }
         });
@@ -56,7 +56,7 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MenuActivity.this, CambiarActivity.class);
-                intent.putExtra("usuario", usuario); // Pasar usuario a la siguiente actividad
+                intent.putExtra("usuario", usuario);
                 startActivity(intent);
             }
         });
@@ -65,7 +65,7 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MenuActivity.this, CancelarActivity.class);
-                intent.putExtra("usuario", usuario); // Pasar usuario a la siguiente actividad
+                intent.putExtra("usuario", usuario);
                 startActivity(intent);
             }
         });

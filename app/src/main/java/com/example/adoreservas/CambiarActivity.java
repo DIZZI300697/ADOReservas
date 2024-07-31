@@ -30,11 +30,14 @@ public class CambiarActivity extends AppCompatActivity {
     private String[] destinos = {"Celestún", "Izamal", "Tekax", "Motul", "Peto"};
     private int reservaId = -1;
     private DatabaseHelper dbHelper;
+    private String usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cambiar);
+
+        usuario = getIntent().getStringExtra("usuario");
 
         etId = findViewById(R.id.et_id);
         etFecha = findViewById(R.id.et_fecha);
@@ -91,6 +94,7 @@ public class CambiarActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(CambiarActivity.this, MenuActivity.class);
+                intent.putExtra("usuario", usuario);
                 startActivity(intent);
                 finish();
             }
@@ -152,6 +156,7 @@ public class CambiarActivity extends AppCompatActivity {
         if (result > 0) {
             Toast.makeText(this, "Reserva actualizada con éxito", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(CambiarActivity.this, MenuActivity.class);
+            intent.putExtra("usuario", usuario);
             startActivity(intent);
             finish();
         } else {
@@ -165,7 +170,7 @@ public class CambiarActivity extends AppCompatActivity {
             calendar.set(Calendar.YEAR, year);
             calendar.set(Calendar.MONTH, month);
             calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-            etFecha.setText(new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(calendar.getTime()));
+            etFecha.setText(new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(calendar.getTime()));
         }
     };
 

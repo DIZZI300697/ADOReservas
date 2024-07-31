@@ -23,7 +23,6 @@ public class ConsultarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consultar);
 
-        // Obtener el nombre de usuario
         usuario = getIntent().getStringExtra("usuario");
 
         etIdConsultar = findViewById(R.id.et_id_consultar);
@@ -89,7 +88,7 @@ public class ConsultarActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ConsultarActivity.this, MenuActivity.class);
-                intent.putExtra("usuario", usuario); // Pasar usuario al volver al menú
+                intent.putExtra("usuario", usuario);
                 startActivity(intent);
                 finish();
             }

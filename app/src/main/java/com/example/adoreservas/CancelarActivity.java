@@ -20,11 +20,14 @@ public class CancelarActivity extends AppCompatActivity {
     private Button btnBuscar, btnCancelar, btnRegresar;
     private DatabaseHelper dbHelper;
     private int reservaId = -1;
+    private String usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cancelar);
+
+        usuario = getIntent().getStringExtra("usuario");
 
         etId = findViewById(R.id.et_id);
         tvDetails = findViewById(R.id.tv_details);
@@ -51,6 +54,7 @@ public class CancelarActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(CancelarActivity.this, MenuActivity.class);
+                intent.putExtra("usuario", usuario);
                 startActivity(intent);
                 finish();
             }
